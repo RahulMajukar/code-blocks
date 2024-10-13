@@ -1,0 +1,68 @@
+<!-- https://tailwindflex.com/@anonymous/animated-search-form -->
+<!-- @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .btn-primary {
+      @apply py-1.5 px-3 text-center bg-blue-700 rounded-md text-white;
+  } */
+}
+
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+} -->
+<div class="relative w-48 transition-all">
+    <input
+      type="text"
+      placeholder="Search..."
+      id="searchInput"
+      class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full outline-none transition-all border-gray-300"
+    />
+    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchContainer = searchInput.parentElement;
+    const searchIcon = searchContainer.querySelector('svg');
+
+    searchInput.addEventListener('focus', () => {
+      searchContainer.classList.add('w-64', 'bg-white');
+      searchContainer.classList.remove('w-48');
+      searchInput.classList.remove('border-gray-300');
+      searchInput.classList.add('border-blue-500');
+      searchIcon.classList.add('text-blue-500');
+      searchIcon.classList.remove('text-gray-400');
+    });
+
+    searchInput.addEventListener('blur', () => {
+      searchContainer.classList.add('w-48');
+      searchContainer.classList.remove('w-64', 'bg-white');
+      searchInput.classList.add('border-gray-300');
+      searchInput.classList.remove('border-blue-500');
+      searchIcon.classList.add('text-gray-400');
+      searchIcon.classList.remove('text-blue-500');
+    });
+  </script>
+
+
+<!-- https://tailwindflex.com/@anonymous/search-box -->
+
+<div class="relative w-full max-w-xl mx-auto bg-white rounded-full">
+    <input placeholder="e.g. Blog" class="rounded-full w-full h-16 bg-transparent py-2 pl-8 pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-teal-200 focus:border-teal-200" type="text" name="query" id="query">
+    <button type="submit" class="absolute inline-flex items-center h-10 px-4 py-2 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none right-3 top-3 bg-teal-600 sm:px-6 sm:text-base sm:font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+      <svg class="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      Search
+    </button>
+  </div>
